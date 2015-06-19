@@ -75,7 +75,7 @@ func main() {
 
 		name, err := filepath.Rel(input, path)
 
-		if name == "internal" || err != nil {
+		if strings.Index(name, "internal") != -1 || err != nil {
 
 			return nil
 		}
@@ -99,7 +99,10 @@ func main() {
 
 		if content, err := tpl.Execute(context); err == nil {
 
-			ioutil.WriteFile(output+"/"+name, trim(content), 0644)
+			if err := ioutil.WriteFile(output+"/"+name, trim(content), 0644); err != nil {
+
+				log.Fatal(err)
+			}
 
 		} else {
 

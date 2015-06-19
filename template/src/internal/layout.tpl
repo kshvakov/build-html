@@ -5,5 +5,9 @@
 </head>
 <body>
 {% block content %}{% endblock %}
+
+{% verbatim %}
+{% block safe %}{% endblock %}
+{% endverbatim %}
 </body>
 </html>
