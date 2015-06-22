@@ -90,7 +90,7 @@ func main() {
 			return nil
 		}
 
-		if !strings.HasSuffix(path, ".tpl") {
+		if !(strings.HasSuffix(path, ".tpl") || strings.HasSuffix(path, ".html")) {
 
 			return nil
 		}
